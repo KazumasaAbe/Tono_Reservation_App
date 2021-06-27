@@ -1,22 +1,21 @@
 <template>
-  <div id="app">
-    <p>{{ message }}</p>
-  </div>
+  <v-app> 
+    <Header />
+    <router-view/><!-- router-viewにコンポーネントが描画される -->
+    <Footer />
+  </v-app>
 </template>
 
 <script>
+import Header from './components/header'
+import Footer from './components/footer'
 export default {
-  data: function () {
-    return {
-      message: "Hello Vue!"
-    }
+  components: {
+    Header,
+    Footer,
   }
 }
 </script>
 
 <style scoped>
-p {
-  font-size: 2em;
-  text-align: center;
-}
 </style>
