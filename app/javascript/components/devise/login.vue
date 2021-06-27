@@ -10,9 +10,20 @@
       -->
         <v-card-text>
           <v-form>
-            <v-text-field prepend-icon="mdi-account-circle"  label="会員様ID(またはメールアドレス)" />
-            <v-text-field prepend-icon="mdi-lock" append-icon="mdi-eye-off" type="password" label="パスワード" />
+            <v-text-field
+              prepend-icon="mdi-account-circle"  
+              label="会員様ID(またはメールアドレス)"
+              v-model="name" />
+            <v-text-field
+              v-bind:type="showPassword ? 'text' : 'password'"
+              v-bind:append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+              @click:append="showPassword = !showPassword"
+              prepend-icon="mdi-lock" 
+              label="パスワード" 
+              v-model="password"
+             />
           </v-form>
+          
           <v-card-actions>
           <v-btn
            color="info"
@@ -114,7 +125,10 @@ export default {
   name: 'Sign_up',
   data: function () {
     return {
-      message: "新規登録です"
+      message: "新規登録です",
+      showPassword:false,
+      name:'',
+      password:'',
     }
   }
 }
